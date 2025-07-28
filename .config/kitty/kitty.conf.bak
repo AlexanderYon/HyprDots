@@ -1,0 +1,64 @@
+########################################################
+#
+#     GENERAL
+#
+
+font_family	                Hack Nerd Font
+font_size 	                8.2
+enable_audio_bell           no
+open_url_with               firefox
+window_padding_width        10
+window_margin_width         0
+detect_urls                 yes
+sync_to_monitor             no
+# active_border_color         FF0088
+
+
+########################################################
+#
+#
+#     MAPS
+#
+
+# New window
+map ctrl+shift+enter        new_window_with_cwd
+
+# New tab
+# map ctrl+shift+t          new_tab_with_cwd
+
+# Move to window
+map ctrl+up                 neighboring_window up
+map ctrl+down               neighboring_window down
+map ctrl+left               neighboring_window left
+map ctrl+right              neighboring_window right
+
+# Resize windows
+map ctrl+shift+j            resize_window taller
+map ctrl+shift+k            resize_window shorter 
+map ctrl+shift+h            resize_window narrower
+map ctrl+shift+l            resize_window wider
+map ctrl+shift+z            toggle_layout stack
+
+
+########################################################
+#
+#
+#     TABS
+#
+
+tab_bar_style               powerline
+# inactive_tab_background #e06c75
+# active_tab_background   #A1BDCE
+# inactive_tab_foreground #000000
+
+
+########################################################
+#
+#
+#     THEME
+#
+
+# BEGIN_KITTY_THEME
+# Square
+include current-theme.conf
+# END_KITTY_THEME

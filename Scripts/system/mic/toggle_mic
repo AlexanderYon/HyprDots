@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#if [ $(pulseaudio-ctl | grep "Is source muted" | wc -c) -eq 47 ]
+#then
+#  echo "  " # Muted Icon (Install Some icon pack like feather, nerd-fonts)
+#else
+#  echo "  " # Unmuted Icon (Install Some icon pack like feather, nerd-fonts)
+#fi
+
+audio_source=@DEFAULT_AUDIO_SOURCE@
+wpctl set-mute $audio_source toggle # Toogle mic status
+current_status=$(wpctl get-volume $audio_source | awk '{print $3}')
+
+if [ $current_status = "[MUTED]" ]; then
+	dunstify -r 9999 -u low "  Muted"
+else
+	dunstify -r 9999 -u low "󰍬 Unmuted"
+fi

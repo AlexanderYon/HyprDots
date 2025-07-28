@@ -1,0 +1,15 @@
+[submodule "Repos/zsh-autocomplete"]
+	path = Repos/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
+[submodule "Repos/zsh-autosuggestions"]
+	path = Repos/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "Repos/NvChad"]
+	path = Repos/NvChad
+	url = https://github.com/NvChad/NvChad.git
+[submodule "Repos/yay"]
+	path = Repos/yay
+	url = https://github.com/Jguer/yay.git
+[submodule "Repos/powerlevel10k"]
+	path = Repos/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

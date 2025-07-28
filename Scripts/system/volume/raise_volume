@@ -1,0 +1,20 @@
+#!/bin/bash
+
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # Unmute if muted
+
+# Define the command to retrieve the current volume level as a percentage (0 - 100)
+get_volume_command="pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print \$2}' | awk '{print \$1}' | sed 's/%//'"
+
+# Obtain the current volume before raise it
+prev_volume=$(eval "$get_volume_command")
+
+# If volume is full (100%) do nothing
+if [ "$prev_volume" -ge 100 ]; then
+    exit 1
+fi
+
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ # Raise volume +5%
+
+# Notify the current volume
+current_volume=$(eval "$get_volume_command")
+dunstify -r 9999 -u low -h int:value:$((current_volume)) " $current_volume%"

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#if [ $(amixer | grep "Front Left: Playback" | awk '{print $6}' | sed 's/\]//g' | sed 's/\[//g') = "on" ]; then
+#	amixer sset Master mute
+#	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print $2}' | awk '{print $1}' | sed 's/%//')
+#	dunstify -r 9999 -u low -h int:value:0 "󰖁  Muted"
+#else
+#	amixer sset Master unmute
+#	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print $2}' | awk '{print $1}' | sed 's/%//')
+#	dunstify -r 9999 -u low -h int:value:$volume "  Unmuted"
+#fi
+
+audio_dv=@DEFAULT_AUDIO_SINK@ # Get audio device
+wpctl set-mute $audio_dv toggle # Toogle mute to audio device
+mute_status=$(wpctl get-volume $audio_dv | awk '{print $3}') # Get the current status: "[MUTED]" or "" (empty)
+
+# Notify de current status
+if [ "$mute_status" = "[MUTED]" ]; then
+	dunstify -r 9999 -u low -h int:value:0 "󰖁  Muted"
+else
+	current_volume=$(wpctl get-volume $audio_dv | awk '{print $2}')
+	parsed_volume=$(echo "$current_volume * 100" | bc)
+	dunstify -r 9999 -u low -h int:value:$parsed_volume "  Unmuted"
+fi

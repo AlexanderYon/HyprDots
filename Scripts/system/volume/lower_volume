@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# pamixer sset Master unmute
+# amixer sset Master 5%-
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 # Unmute
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- # Lower volume -5%
+
+cv=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F'/' '{print $2}' | awk '{print $1}' | sed 's/%//') # Current volume
+dunstify -r 9999 -u low -h int:value:$((cv)) " $cv%"

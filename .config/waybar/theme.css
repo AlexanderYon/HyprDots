@@ -1,0 +1,53 @@
+/* 
+  bg - background
+  fg - foreground
+  br - border
+*/
+
+/* CUSTOM COLORS */
+
+@define-color custom-pink    #FAD1D1; /* Rosa pastel suave */
+
+/* Main Colors */
+
+@define-color main-fg         #F5D0C5; /* Rosa claro */
+@define-color main-bg         #1F1F23; /* Fondo oscuro (más oscuro que el anterior) */
+/*@define-color main-bg	      #ffffff;*/
+@define-color main-br         #FAD1D1; /* Rosa pastel */
+
+@define-color active-bg       #F1A7C1; /* Rosa suave para el estado activo */
+@define-color active-fg       #1F1F23; /* Fondo oscuro suave para el estado activo */
+
+@define-color hover-bg        #E8A8B3; /* Rosa claro para el hover */
+@define-color hover-fg        rgba(245, 208, 197, 0.75); /* Rosa muy suave con opacidad */
+
+@define-color white           #FFFFFF; /* Blanco */
+@define-color black           #000000; /* Negro */
+
+/* Module Colors */
+
+@define-color module-fg       #F5D0C5; /* Rosa claro */
+@define-color workspaces      #3A3A47; /* Fondo oscuro para workspaces (más oscuro) */
+
+@define-color cpuinfo         #3A3A47; /* Fondo oscuro para CPU #3A3A47 */ 
+@define-color memory          #5f465d; /* Rosa pastel muy suave */
+@define-color cpu             #8a5e81; /* Rosa suave */
+@define-color distro-fg       #1F1F23; /* Fondo oscuro para el texto del distro */
+@define-color distro-bg       #F9C7D1; /* Rosa pastel muy suave */
+@define-color time            #8a5e81; /* Rosa suave para la hora */
+@define-color date            #5f465d; /* Rosa muy suave */
+@define-color tray            #3A3A47; /* Fondo oscuro para el área de tray */
+
+@define-color pulseaudio      #3a3a47; /* Rosa suave para pulseaudio */
+@define-color backlight       #5f465d; /* Rosa pastel suave */
+@define-color battery         #8a5e81; /* Rosa suave para batería */
+@define-color power           #F9C7D1; /* Rosa pastel suave para el estado de energía */
+
+/* State Colors */
+
+@define-color good            #FAD1D1; /* Rosa pastel */
+@define-color warning         #F9D7A1; /* Amarillo suave pastel */
+@define-color critical        #F38BA8; /* Rosa fuerte para estado crítico */
+@define-color full            #F1E6D9; /* Rosa muy suave para estado completo */
+@define-color charging        #F5D0C5; /* Rosa claro para estado de carga */
+

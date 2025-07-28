@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#current_brightness=$(brightnessctl | awk 'NR==2 {print $3}')
+current_brightness=$(brightnessctl g)
+
+if [[ $current_brightness -ge 4000 ]]; then
+	final_brightness=$((current_brightness - 3840))
+	brightnessctl -d intel_backlight set "$final_brightness"
+fi
+
+new_brightness=$(brightnessctl g)
+pb=$(((new_brightness * 100) / 96000)) # percentage brightness
+
+#dunstify -r 9999 "$((percentage_brightness))%"
+dunstify -r 9999 -h int:value:$((pb)) -u low "󰃠 $((pb))%"
+
+#polybar-msg hook brightness 1
+#~/Scripts/system/brightness/get_brightness_level
